@@ -17,12 +17,20 @@ if __name__ == '__main__':
     # Find a random movie
     def findRandomMovie(*l):
         db = "omdbapi"
-        searchtype = "t"
-        searchval = "Guardians of the galaxy"
-        a = backend.APIReq(db, searchval, searchtype)
-        print(json.dumps(a, sort_keys=True, indent=4, separators=(',', ': ')))
-        label.text = json.dumps(a, sort_keys=True, indent=4, separators=(',', ': '))
+        a = backend.APIReqRandom(db)
+        #print(json.dumps(a, sort_keys=True, indent=4, separators=(',', ': ')))
+        label.text = json.dumps(a, indent=4, separators=(',', ': '))
 
+
+    # Find a movie
+    def findMovie(*l):
+        db = "omdbapi"
+        searchtype = "s"
+        searchval = inputBox.text
+        a = backend.APIReq(db, searchval, searchtype)
+        print(len(a))
+        label.text = json.dumps(a, indent=4, separators=(',', ': '))
+        #print(json.dumps(a, sort_keys=True, indent=4, separators=(',', ': ')))
 
     topPadding = .1
 
@@ -64,7 +72,7 @@ if __name__ == '__main__':
         pos_hint={'x': .7, 'y': 1-topPadding}
     )
     searchButton.bind(
-        on_release=findRandomMovie
+        on_release=findMovie
     )
     root.add_widget(searchButton)
 

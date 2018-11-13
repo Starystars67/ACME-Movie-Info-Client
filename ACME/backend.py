@@ -65,6 +65,7 @@ def APIReq(db, searchVal, searchType):
     os.system("cls")
     if db == "omdbapi":
         searchVal = searchVal.replace(" ", "%20")
+        searchVal = searchVal.replace('\n', '').replace('\r', '')
         http = urllib3.PoolManager()
         r = http.request('GET', 'http://www.omdbapi.com/?'+searchType+'='+searchVal+'&apikey=2688c382')
         j = json.loads(r.data)
@@ -101,7 +102,7 @@ def APIReqRandom(db):
 #        elif db == "tmdb":
 #            with urllib.request.urlopen('http://www.omdbapi.com/?'+searchType+'='+searchVal+'&apikey=2688c382') as response:
 #                r = response.read()
-    print(i)
+    #print(i)
     return j
 
 #Read & update JSON file
