@@ -1,5 +1,4 @@
 import kivy
-#kivy.require('1.0.8')
 from kivy.core.window import Window
 from kivy.uix.textinput import TextInput
 from kivy.uix.floatlayout import FloatLayout
@@ -7,6 +6,9 @@ from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.base import runTouchApp
 from kivy.graphics import Color, Rectangle
+import json
+
+import backend
 
 if __name__ == '__main__':
 
@@ -14,9 +16,12 @@ if __name__ == '__main__':
 
     # Find a random movie
     def findRandomMovie(*l):
-        Window.release_all_keyboards()
-
-
+        db = "omdbapi"
+        searchtype = "t"
+        searchval = "Guardians of the galaxy"
+        a = backend.APIReq(db, searchval, searchtype)
+        print(json.dumps(a, sort_keys=True, indent=4, separators=(',', ': ')))
+        label.text = json.dumps(a, sort_keys=True, indent=4, separators=(',', ': '))
 
 
     topPadding = .1
@@ -86,9 +91,11 @@ if __name__ == '__main__':
     label = Label(
         text=labelText,
         size_hint_y=None,
-        height=50,
+        height=100,
         pos_hint={'top': .5},
-        color=(0, 1, 0, 1)
+        color=(0, 1, 0, 1),
+        halign = 'center',
+        valign = 'center'
     )
     root.add_widget(label)
 

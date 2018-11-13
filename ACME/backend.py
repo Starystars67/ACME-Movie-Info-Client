@@ -215,15 +215,15 @@ Func List:
 
 
 # system for formatting results?
-ListAddition(APIReq("omdbapi", "The Matrix", "t"))
-ListAddition(APIReqRandom("omdbapi"))
-ListAddition(APIReq("omdbapi", "Godzilla", "t"))
-
-print"--------------------------------------------------------------"
-print"--------------------------------------------------------------"
-print"--------------------------------------------------------------"
-
-print(CalcRating()) # This is returning 0..
+# ListAddition(APIReq("omdbapi", "The Matrix", "t"))
+# ListAddition(APIReqRandom("omdbapi"))
+# ListAddition(APIReq("omdbapi", "Godzilla", "t"))
+#
+# # print"--------------------------------------------------------------"
+# # print"--------------------------------------------------------------"
+# # print"--------------------------------------------------------------"
+#
+# print(CalcRating()) # This is returning 0..
 
 #print searchcontent
 #print searchresult
