@@ -75,8 +75,16 @@ def APIReq(db, searchVal, searchType):
         searchcontent.append([db, searchVal, searchType])
         searchresult.append(j);
     elif db == "tmdb":
-        with urllib.request.urlopen('http://www.omdbapi.com/?'+searchType+'='+searchVal+'&apikey=2688c382') as response:
-            r = response.read()
+        searchVal = searchVal.replace(" ", "%20")
+        searchVal = searchVal.replace('\n', '').replace('\r', '')
+        http = urllib3.PoolManager()
+        r = http.request('GET', 'https://api.themoviedb.org/3/'+searchVal+'?api_key=b820f7ca8b64556235fcf052051e01cd')
+        j = json.loads(r.data)
+        j['Status'] = ""
+        j['Rating'] = 0
+        #print json.dumps(j, sort_keys=True, indent=4, separators=(',', ': '))
+        searchcontent.append([db, searchVal, searchType])
+        searchresult.append(j);
     return j
 
 
