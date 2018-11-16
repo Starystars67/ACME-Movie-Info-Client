@@ -1,0 +1,15 @@
+{
+  "name": "ACME-NodeJS-Electron",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^3.0.9"
+  },
+  "pkg": {
+    "scripts": "lib/js/*.js",
+    "assets": "lib/css/*"
+  }
+}
