@@ -1,6 +1,6 @@
 @echo off
 
-set /P loc=please enter your python location: 
+set /P loc=please enter your python location:
 
 echo INFO: Installing latest pip and wheel.
 %loc%\python.exe -m pip install --upgrade pip wheel setuptools
