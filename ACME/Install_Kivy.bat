@@ -24,6 +24,11 @@ echo INFO: Installing Kivy.
 %loc%\python.exe -m pip install kivy
 REM goto Examples
 
-:Examples
-echo INFO: Installing Kivy examples.
-%loc%\python.exe -m pip install kivy_examples
+set /P ex=Would you like to install the examples? (Y/N):
+IF "%ex%"=="Y" OR IF "%ex%"=="y" (
+  echo INFO: Installing Kivy examples.
+  %loc%\python.exe -m pip install kivy_examples
+)
+
+echo Installation Complete.
+pause
