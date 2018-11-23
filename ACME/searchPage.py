@@ -1,5 +1,6 @@
 import kivy
 
+#Import object classes
 from kivy.uix.textinput import TextInput
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.button import Button
@@ -7,12 +8,14 @@ from kivy.uix.label import Label
 from kivy.uix.scrollview import ScrollView
 from kivy.uix.scatter import Scatter
 
+#Import kivy controllers
 from kivy.base import runTouchApp
 from kivy.core.window import Window
 from kivy.graphics import Color, Rectangle
 
 import json
 
+#Connection to backend.py
 import backend
 
 if __name__ == '__main__':
@@ -51,6 +54,7 @@ if __name__ == '__main__':
     rndButton.bind(
         on_release=find_random_movie
     )
+    root.add_widget(rndButton)
 
     # Top Search Bar
     inputBox = TextInput(
@@ -59,6 +63,7 @@ if __name__ == '__main__':
         height=100,
         font_size='22'
     )
+    root.add_widget(inputBox)
 
     # Search Button - next to the Search Bar
     searchButton = Button(
@@ -70,6 +75,7 @@ if __name__ == '__main__':
     searchButton.bind(
         on_release=find_movie
     )
+    root.add_widget(searchButton)
 
     # My List Button
     listButton = Button(
@@ -77,6 +83,7 @@ if __name__ == '__main__':
         size_hint=(.16, 0.075),
         pos_hint={'x': .82, 'y': topPosition}
     )
+    root.add_widget(listButton)
 
     # Output Text - this displays the searched information
     outputText = Label(
@@ -88,12 +95,9 @@ if __name__ == '__main__':
         halign='center',
         valign='center'
     )
-
-    root.add_widget(rndButton)
-    root.add_widget(inputBox)
-    root.add_widget(searchButton)
-    root.add_widget(listButton)
     root.add_widget(outputText)
+
+    
 
     runTouchApp(root)
 
