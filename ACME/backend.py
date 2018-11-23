@@ -1,32 +1,3 @@
-"""
-Func List:
-    findrand
-    searchbox
-    movetoMyList
-    AddToList - +rating&status keys
-    change status
-    change rating
-    remove from list
-
-    calculate total time
-    calculate score deviation
-
-
-
-
-
-    {
-        ]
-            film: "title"
-            plot: "stuff happened"
-            rating: 5
-            status: "watched"
-        ]
-    }
-
-
-"""
-
 
 
 """
@@ -206,20 +177,6 @@ def CalcRating():
 
 
 
-
-"""
-Func List:
-1    findrand
-    searchbox
-    movetoMyList
-1    AddToList - +rating&status keys
-1    change status
-1    change rating
-1    remove from list
-
-1    calculate total time
-    calculate score deviation
-"""
 
 
 

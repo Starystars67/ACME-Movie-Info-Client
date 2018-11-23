@@ -1,0 +1,90 @@
+#:kivy 1.0
+# https://kivy.org/doc/stable/api-kivy.base.html
+# https://kivy.org/doc/stable/api-kivy.app.html?highlight=testapp
+# https://kivy.org/doc/stable/guide/lang.html
+# https://kivy.org/doc/stable/api-kivy.uix.screenmanager.html
+
+<ScreenManagement>:
+    MainScreen:
+    Screen1:
+
+
+
+<MainScreen>:
+	FloatLayout:
+		
+		output_box: output_box.__self__
+
+		Button:
+			id: rand_button
+			size_hint: .16, .075
+			pos_hint: {'x': .02, 'y': .9}
+			text: 'Find random \n movie'
+			on_press: app.findRandomMovie(self)
+			
+			
+		TextInput:
+			id: search_box
+			size_hint_x: 0.5
+			size_hint_y: 0.075
+			pos_hint: {'x': .2, 'y': .9}
+			height: 100
+			font_size: 22
+
+			
+		Button:
+			id: search_button
+			size_hint: .1, .075
+			pos_hint: {'x': .705, 'y': .9}
+			text: 'SEARCH'
+			
+			
+		Button:
+			id: my_list_button
+			size_hint: .16, .075
+			pos_hint: {'x': .82, 'y': .9}
+			text: 'MY LIST'
+			on_press: root.manager.current = 'wishlist'
+			
+			
+		Label:
+			id: output_box
+			size_hint: None, None
+			pos_hint: {'x': 1, 'y': .5}
+			text: 'Output here'
+			color: (0, 1, 0, 1)
+			
+			
+<WishList>:
+
+	FloatLayout:
+		
+		Button:
+			id: rand_button1
+			size_hint: .16, .075
+			pos_hint: {'x': .02, 'y': .5}
+			text: 'Find random \n movie'
+			on_press: root.manager.current = 'main'
+			
+		TextInput:
+			id: search_box1
+			size_hint_x: 0.5
+			size_hint_y: 0.075
+			pos_hint: {'x': .2, 'y': .5}
+			height: 100
+			font_size: 22
+
+			
+		Button:
+			id: search_button1
+			size_hint: .1, .075
+			pos_hint: {'x': .705, 'y': .5}
+			text: 'SEARCH'
+			
+			
+		Button:
+			id: my_list_button1
+			size_hint: .16, .075
+			pos_hint: {'x': .82, 'y': .5}
+			text: 'MY LIST'
+			
