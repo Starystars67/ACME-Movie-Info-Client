@@ -27,13 +27,13 @@
 			<div class="collapse navbar-collapse" id="navbarCollapse">
 				<ul class="navbar-nav mr-auto">
 					<li class="nav-item active">
-						<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+						<a class="nav-link" href="home">Home <span class="sr-only">(current)</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Watch List</a>
+						<a class="nav-link" href="watchlist">Watch List</a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#">Wish List</a>
+						<a class="nav-link" href="wishlist">Wish List</a>
 					</li>
 				</ul>			
 				<form class="form-inline mt-2 mt-md-0">
@@ -45,7 +45,7 @@
     </header>
 
     <!-- Home Page Content -->
-    <main data-page="home" role="main" class="container" style="margin-top: 10px; padding-top: 10px; display: none;">
+    <main data-page="home" role="main" class="container page home" style="margin-top: 10px; padding-top: 10px;">
 		<h1 class="mt-5"></h1>
 
 		<div id="carouselExampleIndicators" class="carousel slide mt-12" data-ride="carousel">
@@ -92,8 +92,35 @@
     </main>
 
     <!-- Search Page Content -->
-    <main data-page="search" role="main" class="container page search" style="margin-top: 10px; padding-top: 10px;">
+    <main data-page="search" role="main" class="container page search" style="margin-top: 10px; padding-top: 10px; display: none;">
 		<h1 class="mt-5">Search results for: <span id="searchcriteria"></span>.</h1>
+
+		<div id="SearchResults">
+			<div class="container">
+				<div class="row mx-auto mt-4">
+					<div class="col">
+						<div class="card">
+							<div class="card-body">
+								Avengers 4
+							</div>
+						</div>
+					</div>
+					<div class="col col-lg-2">
+						<div class="card">
+							<div class="card-body">
+								Custom Content
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+    </main>
+	
+	<!-- Wish List Page Content -->
+    <main data-page="wishlist" role="main" class="container page wishlist" style="margin-top: 10px; padding-top: 10px;">
+		<h1 class="mt-5">About:</h1>
 
 		<div id="SearchResults">
 			<div class="container">
@@ -121,23 +148,18 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="lib/js/JQuery.js"></script>
+	
+    
+	<!-- Insert this line above script imports  -->
+	<script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+	<!-- normal script imports etc  -->
+	<script src="lib/js/JQuery.js"></script>   
+
+	<!-- Insert this line after script imports -->
+	<script>if (window.module) module = window.module;</script>
+	
     <script src="lib/js/bootstrap.min.js"></script>
     <script src="lib/js/system.js"></script>
-    <script>
-     var time = new Date().getTime();
-     $(document.body).bind("mousemove keypress", function(e) {
-         time = new Date().getTime();
-     });
-
-     function refresh() {
-         if(new Date().getTime() - time >= 30000)
-             window.location.reload(true);
-         else
-             setTimeout(refresh, 10000);
-     }
-
-     setTimeout(refresh, 10000);
-    </script>
   </body>
 </html>
