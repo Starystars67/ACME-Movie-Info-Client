@@ -51,7 +51,16 @@ $("a").click(function(e) {
   e.preventDefault();
   var page = $(this).attr('href')
   console.log(page);
-  ShowPage(page);
+  if (page == "movieSearch") {
+    var searchVal = $(this).data('value')
+    console.log(searchVal)
+    $.getJSON('http://www.omdbapi.com/?i='+searchVal+'&apikey=2688c382', function( data ) {
+      $('#ModalLabel').html(data);
+    });
+    return;
+  } else {
+    ShowPage(page);
+  }
 });
 
 function HidePages() {
@@ -62,7 +71,7 @@ function ShowPage(page) {
   $('.'+page).show(); // hides
 }
 
-// Function to query debug
+// Function to query api
 function APIReq (db, searchVal, searchType) {
   if (db == 'omdbapi') {
     $.getJSON('http://www.omdbapi.com/?'+searchType+'='+searchVal+'&apikey=2688c382', function( data ) {
@@ -73,7 +82,7 @@ function APIReq (db, searchVal, searchType) {
         if (k %2 == 0) {
           html += '<div class="row mx-auto mt-4">'
         }
-        html += '  <div class="col-md-6"> <a href="movieSearch" data-value="' + data.Search[k].imdbID + '" style="">'
+        html += '  <div class="col-md-6"> <a href="movieSearch" data-value="' + data.Search[k].imdbID + '" style="" data-toggle="modal" data-target="#movieModal">'
         html += '    <div class="media">'
         html += '      <img class="mr-3" src="'+data.Search[k].Poster+'" alt="Movie Poster Image" style="max-width: 64px;">'
         html += '      <div class="media-body">'
@@ -84,8 +93,6 @@ function APIReq (db, searchVal, searchType) {
         if (k %2 == 1) {
           html += '</div>'
         }
-
-
       }
       $('#SearchResults').html(html);
     });
