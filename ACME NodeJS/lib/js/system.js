@@ -74,7 +74,7 @@ function ShowPage(page) {
 // Function to query api
 function APIReq (db, searchVal, searchType) {
   if (db == 'omdbapi') {
-    $.getJSON('http://www.omdbapi.com/?'+searchType+'='+searchVal+'&apikey=2688c382', function( data ) {
+    $.getJSON('Example API Request: https://api.themoviedb.org/3/movie/550?api_key=b820f7ca8b64556235fcf052051e01cd', function( data ) {
       if (DEBUG) console.log(data);
       $('#totalResults').html(data.totalResults);
       var html = ''
@@ -97,7 +97,28 @@ function APIReq (db, searchVal, searchType) {
       $('#SearchResults').html(html);
     });
   } else if (db == 'tmdbapi') {
-
+    $.getJSON('https://api.themoviedb.org/3/movie/550?api_key=b820f7ca8b64556235fcf052051e01cd', function( data ) {
+      if (DEBUG) console.log(data);
+      $('#totalResults').html(data.totalResults);
+      var html = ''
+      for (k=0; k < data.Search.length; k++) {
+        if (k %2 == 0) {
+          html += '<div class="row mx-auto mt-4">'
+        }
+        html += '  <div class="col-md-6"> <a href="movieSearch" data-value="' + data.Search[k].imdbID + '" style="" data-toggle="modal" data-target="#movieModal">'
+        html += '    <div class="media">'
+        html += '      <img class="mr-3" src="'+data.Search[k].Poster+'" alt="Movie Poster Image" style="max-width: 64px;">'
+        html += '      <div class="media-body">'
+        html += '        <h5 class="mt-0">' + data.Search[k].Title + '</h5>' + data.Search[k].Year
+        html += '      </div>'
+        html += '    </div>'
+        html += '  </a></div>'
+        if (k %2 == 1) {
+          html += '</div>'
+        }
+      }
+      $('#SearchResults').html(html);
+    });
   }
 
 }
