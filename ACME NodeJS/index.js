@@ -12,7 +12,7 @@ function createWindow () {
   win.loadFile('index.html')
 
   // Open the DevTools.
-  //win.webContents.openDevTools()
+  win.webContents.openDevTools()
 
   // Remove the menu bar at the top
   win.setMenu(null);
