@@ -73,14 +73,14 @@ function APIReq (db, searchVal, searchType) {
         if (k %2 == 0) {
           html += '<div class="row mx-auto mt-4">'
         }
-        html += '  <div class="col-md-6">'
+        html += '  <div class="col-md-6"> <a href="movieSearch" data-value="' + data.Search[k].imdbID + '" style="">'
         html += '    <div class="media">'
         html += '      <img class="mr-3" src="'+data.Search[k].Poster+'" alt="Movie Poster Image" style="max-width: 64px;">'
         html += '      <div class="media-body">'
         html += '        <h5 class="mt-0">' + data.Search[k].Title + '</h5>' + data.Search[k].Year
         html += '      </div>'
         html += '    </div>'
-        html += '  </div>'
+        html += '  </a></div>'
         if (k %2 == 1) {
           html += '</div>'
         }
