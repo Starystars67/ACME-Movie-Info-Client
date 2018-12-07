@@ -29,6 +29,7 @@ function SearchButton() {
   var val = $('#searchVal').val();
   $('#searchcriteria').html(val);
   $('.search').show();
+  console.log(val)
   APIReq('omdbapi', val, 's')
 }
 
@@ -74,7 +75,7 @@ function ShowPage(page) {
 // Function to query api
 function APIReq (db, searchVal, searchType) {
   if (db == 'omdbapi') {
-    $.getJSON('Example API Request: https://api.themoviedb.org/3/movie/550?api_key=b820f7ca8b64556235fcf052051e01cd', function( data ) {
+    $.getJSON('http://www.omdbapi.com/?'+searchType+'='+searchVal+'&apikey=2688c382', function( data ) {
       if (DEBUG) console.log(data);
       $('#totalResults').html(data.totalResults);
       var html = ''
