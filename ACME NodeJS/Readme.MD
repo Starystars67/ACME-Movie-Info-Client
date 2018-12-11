@@ -1,5 +1,9 @@
-Okay so, I have put together some batch scripts to install the required dependencies for you without you having to do it.
+Please ensure that NodeJS is installed. Installation link: https://nodejs.org/en/
 
-Setup.bat will install all your dependencies and the application compiler.
+The batch scripts below will install the required dependencies: 
 
-Compiler.bat will generate your exe of our application for you ready to run on Windows x64
+"Setup.bat" will install all the dependencies.
+
+"Compiler.bat" will generate the .exe of our application which can be ran on Windows x64.
+
+"Run.bat" is an Alternative method which can run the application quickly without having to compile it.
