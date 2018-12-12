@@ -1,1 +1,0 @@
-So, The idea is that we upload any and all screenshots, images, material that is group based here to help each other as at the end of the day our reports are about the same content just written about it from our perspective basically.
